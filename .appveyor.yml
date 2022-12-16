@@ -18,9 +18,9 @@ environment:
   au_test_groups: 1
 
   # Github token to commit pushed packages to repository
-  github_user_repo: {github_user}/{repository}
+  github_user_repo: dragredsim/choco_packages
   github_api_key:
-    secure: YOUR_GITHUB_API_KEY_HERE_ENCRYPTED_STRING #https://ci.appveyor.com/tools/encrypt
+    secure: 2QGnhUChoTdcx4IL9llTwZvIbbs/7104vrX5GCpVFNsb7z5oLo26rAdByHVg6nQQ #https://ci.appveyor.com/tools/encrypt
 
 
   # Mail credentials - for error notifications
@@ -34,14 +34,14 @@ environment:
 
   # ID of the gist used to save run results - create a gist under the github_user (secret or not) and grab the id - https://gist.github.com/name/id
   # Optional, leave empty to create anonymous gist
-  gist_id:
+  gist_id: 7c6654c0223dd07f2de3ffedc6d692f4
 
   # Force test: gist id for test results
-  gist_id_test:
+  gist_id_test: 9d2685299d624935fe5ec1ca6efe9f0e
 
   # Chocolatey API key - to push updated packages
   api_key:
-    secure: YOUR_CHOCO_API_KEY_HERE_ENCRYPTED_STRING # https://ci.appveyor.com/tools/encrypt
+    secure: 0OBRUNdFDgOHctyQuOtbD2TsFI7OU+JlWefGDc+W25k66LQn5wv5kBbmmyGk8ZxK # https://ci.appveyor.com/tools/encrypt
 
 init:
 - git config --global user.email "chocolatey@realdimensions.net"
@@ -106,8 +106,8 @@ notifications:
 - provider: Email
   to: $(mail_user)
   on_build_success: false
-  on_build_failure: true
-  on_build_status_changed: true
+  on_build_failure: false
+  on_build_status_changed: false
 
 #on_finish:
 #- ps: $blockRdp = $true; iex ((new-object net.webclient).DownloadString('https://raw.githubusercontent.com/appveyor/ci/master/scripts/enable-rdp.ps1'))
