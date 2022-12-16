@@ -1,9 +1,9 @@
 <!-- EDIT ME-->
 
-[![](https://ci.appveyor.com/api/projects/status/github/dragredsim/chocolatey-packages?svg=true)](https://ci.appveyor.com/project/dragredsim/chocolatey-packages)
+[![](https://ci.appveyor.com/api/projects/status/github/dragredsim/choco-packages?svg=true)](https://ci.appveyor.com/project/dragredsim/choco-packages)
 [Update status](https://gist.github.com/dragredsim/YOUR_GIST_ID_HERE)
 [![](http://transparent-favicon.info/favicon.ico)](#)
-[chocolatey/DragRedSim](https://chocolatey.org/profiles/DdragRedSim)
+[chocolatey/DragRedSim](https://chocolatey.org/profiles/DragRedSim)
 
 <!-- EDIT ME-->
 <!-- REMOVE THE squiggles "~" surrounding this (this should not be a code block) -->
