@@ -5,15 +5,20 @@ $releases = 'https://www.crucial.com/support/storage-executive'
 function global:au_GetLatest {
 	$download_page	= Invoke-WebRequest -Uri $releases
 	$filere			= '\.zip$'
+	
+	$verre			= '(?<=Version\s)[\d.-]+(?=\s)'
+	$download_page.Content -match $verre | Out-Null
+	$version		= $Matches[0].ToString()
+	#short-circuit if there is no new update to the webpage
+	if ($version -eq $Package.NuspecVersion) {
+		return @{version = $version}
+	}
+
 	$url64			= $download_page.links | ? href -match $filere | select -First 1 -expand href
 	if ($url64.StartsWith("/")) {
 		# url is NOT fully qualified
 		$url64 = ([System.Uri]$releases).scheme + '://' + ([System.Uri]$releases).authority + $url64
-	}		
-	$verre			= '(?<=Version\s)[\d.-]+(?=\s)'
-	$download_page.Content -match $verre | Out-Null
-	$version		= $Matches[0]
-	
+	}	
 	$checksumType	= 'sha256'
 	$checksum64		= Get-RemoteChecksum -Algorithm $checksumType -Url $url64
 	
@@ -36,4 +41,4 @@ function global:au_SearchReplace {
   }
 }
 
-Update-Package -ChecksumFor none
+Update-Package -ChecksumFor 64
