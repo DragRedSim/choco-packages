@@ -18,7 +18,7 @@ environment:
   au_test_groups: 1
 
   # Github token to commit pushed packages to repository
-  github_user_repo: dragredsim/choco_packages
+  github_user_repo: dragredsim/choco-packages
   github_api_key:
     secure: 2QGnhUChoTdcx4IL9llTwZvIbbs/7104vrX5GCpVFNsb7z5oLo26rAdByHVg6nQQ #https://ci.appveyor.com/tools/encrypt
 
