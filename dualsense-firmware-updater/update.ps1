@@ -6,13 +6,13 @@ function global:au_GetLatest {
 	$package = [AUPackage]::new( $pwd )
     $json_definition_path = 'https://fwupdater.dl.playstation.net/fwupdater/info.json'
     $json_definition = Invoke-RestMethod -Uri $json_definition_path
-    $version = $json_definition.ApplicationLatestVersion.ToString()
+    $version = $json_definition.ApplicationLatestVersion
 	#short-circuit if there's no new version in the JSON
-	if ($version -eq $package.NuspecVersion.ToString()) {
+	if ($version -eq $package.NuspecVersion) {
 		return @{Version = $version}
 	}
 
-	$download_page	= Invoke-WebRequest -Uri $releases
+	$download_page	= Invoke-WebRequest -UseBasicParsing -Uri $releases
 	$filere			= '\.exe$'
 	$url64			= $download_page.links | ? href -match $filere | select -First 1 -expand href
 	if ($url64.StartsWith("/")) {

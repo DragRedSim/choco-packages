@@ -4,14 +4,14 @@ $releases = 'https://www.crucial.com/support/storage-executive'
 
 function global:au_GetLatest {
 	$package = [AUPackage]::new( $pwd )
-	$download_page	= Invoke-WebRequest -Uri $releases
+	$download_page	= Invoke-WebRequest -UseBasicParsing -Uri $releases
 	$filere			= '\.zip$'
 	
 	$verre			= '(?<=Version\s)[\d.-]+(?=\s)'
 	$download_page.Content -match $verre | Out-Null
 	$version		= $Matches[0].ToString()
 	#short-circuit if there is no new update to the webpage
-	if ($version -eq $package.NuspecVersion.ToString()) {
+	if ($version -eq $package.NuspecVersion) {
 		return @{version = $version}
 	}
 
