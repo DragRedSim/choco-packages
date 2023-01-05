@@ -1,7 +1,7 @@
 <!-- EDIT ME-->
 
 [![](https://ci.appveyor.com/api/projects/status/github/dragredsim/choco-packages?svg=true)](https://ci.appveyor.com/project/dragredsim/choco-packages)
-[Update status](https://gist.github.com/dragredsim/YOUR_GIST_ID_HERE)
+[Update status](https://gist.github.com/dragredsim/7c6654c0223dd07f2de3ffedc6d692f4)
 [![](http://transparent-favicon.info/favicon.ico)](#)
 [chocolatey/DragRedSim](https://chocolatey.org/profiles/DragRedSim)
 
