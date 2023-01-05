@@ -2,7 +2,7 @@
 
 $toolsDir               = "$(Split-Path -parent $MyInvocation.MyCommand.Definition)"
 
-$url64bit               = 'https://www.crucial.com/content/dam/crucial/support/storage-executive-win-64.zip'
+$url64                  = 'https://www.crucial.com/content/dam/crucial/support/storage-executive-win-64.zip'
 $checksum64             = '297a00cb8dd434876ca58998bcbf50f0d79d5736f63f633eaf57a5496903b6b1'
 $checksumType64         = 'sha256'
 $version				= '8.07'
@@ -12,7 +12,7 @@ $packageArgs = @{
   unzipLocation         = $toolsDir
   fileType              = 'EXE'
   softwareName          = "Crucial Storage Executive*"
-  url64bit              = $url64bit
+  url64                 = $url64
   checksum64            = $checksum64
   checksumType64        = $checksumType64
   validExitCodes        = @(0)
