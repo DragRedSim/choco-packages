@@ -10,7 +10,7 @@ function global:au_GetLatest {
 	$download_page.Content -match $verre | Out-Null
 	$version		= $Matches[0].ToString()
 	#short-circuit if there is no new update to the webpage
-	if ($version -eq $Package.NuspecVersion) {
+	if ($version -eq $Package.NuspecVersion.ToString()) {
 		return @{version = $version}
 	}
 
