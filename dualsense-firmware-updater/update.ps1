@@ -3,11 +3,12 @@ Import-Module au
 $releases = 'https://controller.dl.playstation.net/controller/lang/en/fwupdater.html'
 
 function global:au_GetLatest {
+	$package = [AUPackage]::new( $pwd )
     $json_definition_path = 'https://fwupdater.dl.playstation.net/fwupdater/info.json'
     $json_definition = Invoke-RestMethod -Uri $json_definition_path
     $version = $json_definition.ApplicationLatestVersion.ToString()
 	#short-circuit if there's no new version in the JSON
-	if ($version -eq $Package.NuspecVersion.ToString()) {
+	if ($version -eq $package.NuspecVersion.ToString()) {
 		return @{Version = $version}
 	}
 
